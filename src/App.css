@@ -59,3 +59,27 @@ a {
   background: #FF725E;
   color: #fff
 }
+
+.hoe {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  line-height: 3;
+}
+
+button#primary-btn {
+  background: #FF725E;
+  border: transparent;
+  line-height: 2.5;
+}
+
+button#logout-primary {
+  background: #FF725E;
+  border: none;
+}
+
+button#logout-secondary {
+  background: transparent;
+  border: solid 1px #FF725E;
+  color: black;
+}
