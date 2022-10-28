@@ -1,8 +1,8 @@
 import {
-  fetchALLMyProjects,
-  getAllMyProjects,
+  fetchALLProjects,
+  getAllProjects,
   getLoading,
-} from "../slice/myProjectslice";
+} from "../slice/projectslice";
 import { Col, Container, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Spinner from "react-bootstrap/Spinner";
@@ -10,16 +10,16 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-const MemberMyProjects = () => {
+const MyProjects = () => {
   const navigate = useNavigate();
-  const allMyProjects = useSelector(getAllMyProjects);
+  const allProjects = useSelector(getAllProjects);
   const apiStatus = useSelector(getLoading);
   const dispatch = useDispatch();
   let contentToRender = "";
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchALLMyProjects());
+    dispatch(fetchALLProjects());
   }, [dispatch]);
   contentToRender =
     apiStatus === "pending" ? (
@@ -33,18 +33,18 @@ const MemberMyProjects = () => {
     ) : (
       <>
         <Row xs={1} md={3} className="g-4">
-          {allMyProjects.map((myProject) => (
-            <Col key={myProject.id}>
+          {allProjects.map((project) => (
+            <Col key={project.id}>
               <Card>
                 <Card.Body>
-                  <Card.Title>{myProject.name}</Card.Title>
+                  <Card.Title>{project.name}</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted">
-                    category: {myProject.category}
+                    category: {project.category}
                   </Card.Subtitle>
-                  <Card.Text>{myProject.description}</Card.Text>
+                  <Card.Text>{project.description}</Card.Text>
                 </Card.Body>
                 <Card.Body>
-                  <Card.Link href={myProject.github_link}>
+                  <Card.Link href={project.github_link}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -59,7 +59,7 @@ const MemberMyProjects = () => {
 
                   <Card.Link
                     onClick={() => {
-                      navigate(`/edit/${myProject.id}`);
+                      navigate(`/edit/${project.id}`);
                     }}
                   >
                     <svg
@@ -79,7 +79,7 @@ const MemberMyProjects = () => {
                   </Card.Link>
                   <Card.Link
                     onClick={() => {
-                      navigate(`/add/${myProject.id}`);
+                      navigate(`/add/${project.id}`);
                     }}
                   >
                     <svg
@@ -112,7 +112,7 @@ const MemberMyProjects = () => {
                     {visible && (
                       <div>
                         <h3>collaborators</h3>
-                        {myProject.members.map((member) => (
+                        {project.members.map((member) => (
                           <div key={member.id}>{member.name}</div>
                         ))}
                       </div>
@@ -129,4 +129,4 @@ const MemberMyProjects = () => {
   return <Container className="mt-2">{contentToRender}</Container>;
 };
 
-export default MemberMyProjects;
+export default MyProjects;
