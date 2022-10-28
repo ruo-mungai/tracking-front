@@ -8,17 +8,17 @@ export const fetchALLProjects = createAsyncThunk("projects/getAPI", async () => 
   return response.data;
 });
 
-//adding new items
-// export const saveNewProject = createAsyncThunk(
-//   "projects/createAPI",
-//   async (payload) => {
-//     const response = await axios.post(
-//       "http://127.0.0.1:3000/projects",
-//       payload
-//     );
-//     return response.data;
-//   }
-// );
+// adding new items
+export const saveNewProject = createAsyncThunk(
+  "projects/createAPI",
+  async (payload) => {
+    const response = await axios.post(
+      "http://127.0.0.1:3000/projects",
+      payload
+    );
+    return response.data;
+  }
+);
 // updating project
 // export const updateProject = createAsyncThunk("projects/updateAPI", async (payload) => {
 //   const response = await axios.put(

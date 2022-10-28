@@ -7,7 +7,7 @@ export const SideBarData = [
     {
         title: "Projects",
         icon: <HomeIcon />,
-        path: "/h"
+        path: "/projects"
     },
     {
         title: "Add Projects",
