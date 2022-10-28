@@ -47,6 +47,16 @@ const AddMember = () => {
                   )}
                 />
               </Form.Group>
+              <Form.Group className="mb-3" controlId="formproject_id">
+                <Form.Label>project_id</Form.Label>
+                <Controller
+                  control={control}
+                  name="project_id"
+                  render={({ field }) => (
+                    <Form.Control type="text" {...field} />
+                  )}
+                />
+              </Form.Group>
               <Form.Group className="mb-3" controlId="formuser_id">
                 <Form.Label>user_id</Form.Label>
                 <Controller
