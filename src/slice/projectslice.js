@@ -66,8 +66,8 @@ const projectslice = createSlice({
 //    state.projectsData = state.projectsData.filter((_) => _.id !== action.payload.id);
 //    state.projectsData.unshift(action.payload);
 //  });
-//   },
-// });
+  },
+});
 
 export const getAllProjects = (state) => state.project.projectsData;
 export const getLoading = (state) => state.project.loading;
