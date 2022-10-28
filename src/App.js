@@ -6,6 +6,7 @@ import AddProjects from './pages/AddProjects'
 import LogOut from './pages/LogOut'
 import AllProjects from './pages/AllProjects';
 import EditProject from "./pages/EditProject";
+import AddMember from './pages/AddMember';
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
           <Route path="/" element={<AllProjects />} />
           <Route path="/addproject" element={<AddProjects />} />
           <Route path="/edit/:id" element={<EditProject />} />
-          <Route path="/add/:id" element={<AddMember />}></Route>
+          <Route path="/add/:id" element={<AddMember />}/>
           <Route path="/logout" element={<LogOut />} />
         </Routes>
       </Sidebar>
