@@ -16,6 +16,7 @@ function App() {
           <Route path="/" element={<AllProjects />} />
           <Route path="/addproject" element={<AddProjects />} />
           <Route path="/edit/:id" element={<EditProject />} />
+          <Route path="/add/:id" element={<AddMember />}></Route>
           <Route path="/logout" element={<LogOut />} />
         </Routes>
       </Sidebar>
