@@ -12,7 +12,7 @@ function App() {
     <>
     <Sidebar>
     <Routes>
-        <Route path="/projects" element={<AllProjects/>} />
+        <Route path="/" element={<AllProjects/>} />
         <Route path="/addproject" element={<AddProjects/>} />
         <Route path="/logout" element={<LogOut/>} />
     </Routes>
