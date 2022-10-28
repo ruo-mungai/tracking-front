@@ -50,13 +50,13 @@ const projectslice = createSlice({
     });
    
     //data add extra reducers
-    // builder.addCase(saveNewProject.pending, (state, action) => {
-    //   state.loading = "pending";
-    // });
-    // builder.addCase(saveNewProject.fulfilled, (state, action) => {
-    //   state.loading = "idle";
-    //   state.projectsData.unshift(action.payload);
-    // });
+    builder.addCase(saveNewProject.pending, (state, action) => {
+      state.loading = "pending";
+    });
+    builder.addCase(saveNewProject.fulfilled, (state, action) => {
+      state.loading = "idle";
+      state.projectsData.unshift(action.payload);
+    });
  /////////// data add
 //  builder.addCase(updateProject.pending, (state) => {
 //    state.loading = "pending";
