@@ -1,7 +1,7 @@
 import { Col, Container, Form, Row, Button } from "react-bootstrap";
 import { Controller, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { getProjectById, getLoading, updateProject } from "./projectslice";
+import { getProjectById, getLoading, updateProject } from "../slice/projectslice";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EditProject = () => {

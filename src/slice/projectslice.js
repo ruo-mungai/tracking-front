@@ -20,13 +20,13 @@ export const saveNewProject = createAsyncThunk(
   }
 );
 // updating project
-// export const updateProject = createAsyncThunk("projects/updateAPI", async (payload) => {
-//   const response = await axios.put(
-//     `http://127.0.0.1:3000/projects/${payload.id}`,
-//     payload
-//   );
-//   return response.data;
-// });
+export const updateProject = createAsyncThunk("projects/updateAPI", async (payload) => {
+  const response = await axios.put(
+    `http://127.0.0.1:3000/projects/${payload.id}`,
+    payload
+  );
+  return response.data;
+});
 
  //instiall state 
 const initialState = {
