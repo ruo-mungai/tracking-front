@@ -77,6 +77,7 @@ const MyProjects = () => {
                       />
                     </svg>
                   </Card.Link>
+                  
                   <Card.Link
                     onClick={() => {
                       navigate(`/add/${project.id}`);

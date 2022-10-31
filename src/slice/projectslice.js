@@ -4,7 +4,7 @@ const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
  // for fetching from backend
 export const fetchALLProjects = createAsyncThunk("projects/getAPI", async () => {
-  const response = await axios.get("http://127.0.0.1:3000/projects");
+  const response = await axios.get("/projects");
   return response.data;
 });
 
@@ -13,7 +13,7 @@ export const saveNewProject = createAsyncThunk(
   "projects/createAPI",
   async (payload) => {
     const response = await axios.post(
-      "http://127.0.0.1:3000/projects",
+      "/projects",
       payload
     );
     return response.data;
@@ -22,7 +22,7 @@ export const saveNewProject = createAsyncThunk(
 // updating project
 export const updateProject = createAsyncThunk("projects/updateAPI", async (payload) => {
   const response = await axios.put(
-    `http://127.0.0.1:3000/projects/${payload.id}`,
+    `/projects/${payload.id}`,
     payload
   );
   return response.data;

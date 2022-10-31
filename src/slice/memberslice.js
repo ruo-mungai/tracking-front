@@ -4,13 +4,13 @@ const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
 // for fetching from backend
 export const fetchALLMembers = createAsyncThunk("members/getAPI", async () => {
-  const response = await axios.get("http://127.0.0.1:3000/members");
+  const response = await axios.get("/members");
   return response.data;
 });
 
 // get my member only
 export const fetchMyMembers = createAsyncThunk("members/getAPI", async () => {
-  const response = await axios.get("http://127.0.0.1:3000/members");
+  const response = await axios.get("/members");
   return response.data;
 });
 
@@ -18,7 +18,7 @@ export const fetchMyMembers = createAsyncThunk("members/getAPI", async () => {
 export const saveNewMember = createAsyncThunk(
   "members/createAPI",
   async (payload) => {
-    const response = await axios.post("http://127.0.0.1:3000/members", payload);
+    const response = await axios.post("/members", payload);
     return response.data;
   }
 );
@@ -27,7 +27,7 @@ export const updateMember = createAsyncThunk(
   "members/updateAPI",
   async (payload) => {
     const response = await axios.put(
-      `http://127.0.0.1:3000/members/${payload.id}`,
+      `/members/${payload.id}`,
       payload
     );
     return response.data;

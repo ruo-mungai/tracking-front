@@ -5,24 +5,30 @@ import { NavLink } from "react-router-dom";
 function Sidebar({children}) {
 
   return (
-    <div className='Container'>
-    <div className='Sidebar'>
-    <ul className='Sidelist'>
-      {SideBarData.map((val, key) => {
-        return (
-          <NavLink to={val.path} key={key} className="siderow" activeclassName="active">
-            <div id='icon'>{val.icon}</div>
-            <div id='title'>
-              {val.title}
-            </div>
-          </NavLink>
-        )
-      })}
-      </ul>
+    <div className="Container">
+      <div className="Sidebar">
+        <ul className="Sidelist">
+          {SideBarData.map((val, key) => {
+            return (
+              <>
+                <NavLink
+                  to={val.path}
+                  key={key}
+                  className="siderow"
+                  activeclassName="active"
+                >
+                  <div id="icon">{val.icon}</div>
+                  <div id="title">{val.title}</div>
+                </NavLink>
+              </>
+            );
+          })}
+          <NavLink to="/logout"> log out</NavLink>
+        </ul>
+      </div>
+      <main>{children}</main>
     </div>
-    <main>{children}</main>
-    </div>
-  )
+  );
 }
 
 export default Sidebar

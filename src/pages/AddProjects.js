@@ -11,7 +11,7 @@ const AddProjects = () => {
       category: "",
       description: "",
       github_link: "",
-      user_id: "",
+      // user_id: "",
     },
   });
 
@@ -25,7 +25,7 @@ const AddProjects = () => {
       category: data.category,
       description: data.description,
       github_link: data.github_link,
-      user_id: data.user_id,
+      // user_id: data.user_id,
     };
     disptach(saveNewProject(payload))
       .unwrap()
@@ -83,14 +83,14 @@ const AddProjects = () => {
                 render={({ field }) => <Form.Control type="text" {...field} />}
               />
             </Form.Group>
-            <Form.Group id="github-link">
+            {/* <Form.Group id="github-link">
               <Form.Label>user_id*</Form.Label>
               <Controller
                 control={control}
                 name="user_id"
                 render={({ field }) => <Form.Control type="text" {...field} />}
               />
-            </Form.Group>
+            </Form.Group> */}
             <br />
             <Button
               className="w-100"
