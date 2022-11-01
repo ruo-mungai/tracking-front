@@ -23,7 +23,7 @@ function Sidebar({children}) {
               </>
             );
           })}
-          <NavLink to="/logout"> log out</NavLink>
+         
         </ul>
       </div>
       <main>{children}</main>

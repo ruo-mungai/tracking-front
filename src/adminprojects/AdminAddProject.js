@@ -1,16 +1,17 @@
 import { Col, Container, Form, Row, Button } from "react-bootstrap";
 import { Controller, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { getLoading, saveNewMember } from "../slice/memberslice";
+import { getLoading, saveNewProject } from "./adminprojectslice";
 import { useNavigate } from "react-router-dom";
 
-
-const AddMember = () => {
+const AdminAddProject = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
       name: "",
-      project_id: "",
-      user_id: "",
+      category: "",
+      description: "",
+      github_link: "",
+       user_id:"",
     },
   });
 
@@ -18,16 +19,18 @@ const AddMember = () => {
   const navigate = useNavigate();
   const apiStatus = useSelector(getLoading);
 
-  const createNewMember = (data) => {
+  const createNewProject = (data) => {
     let payload = {
       name: data.name,
-      project_id: data.project_id,
+      category: data.category,
+      description: data.description,
+      github_link: data.github_link,
       user_id: data.user_id,
     };
-    disptach(saveNewMember(payload))
+    disptach(saveNewProject(payload))
       .unwrap()
       .then(() => {
-       navigate("/"); 
+        navigate("/");
       });
   };
   return (
@@ -35,8 +38,8 @@ const AddMember = () => {
       <Container className="mt-2">
         <Row>
           <Col className="col-md-8 offset-md-2">
-            <legend>Create A New Member</legend>
-            <Form onSubmit={handleSubmit(createNewMember)}>
+            <legend>Create A New Project</legend>
+            <Form onSubmit={handleSubmit(createNewProject)}>
               <Form.Group className="mb-3" controlId="formName">
                 <Form.Label>Name</Form.Label>
                 <Controller
@@ -47,11 +50,40 @@ const AddMember = () => {
                   )}
                 />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formproject_id">
-                <Form.Label>project_id</Form.Label>
+              <Form.Group className="mb-3" controlId="formcategory">
+                <Form.Label>Category</Form.Label>
                 <Controller
                   control={control}
-                  name="project_id"
+                  name="category"
+                  render={({ field }) => (
+                    // <Form.Control type="text" {...field} />
+                    <Form.Select
+                      aria-label="Default select example"
+                      type="text"
+                      {...field}
+                    >
+                      <option>select category</option>
+                      <option value="Android">Android</option>
+                      <option value="Fullstack">Fullstack</option>
+                    </Form.Select>
+                  )}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formDescription">
+                <Form.Label>description</Form.Label>
+                <Controller
+                  control={control}
+                  name="description"
+                  render={({ field }) => (
+                    <Form.Control type="text" {...field} />
+                  )}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formDescription">
+                <Form.Label>github_link</Form.Label>
+                <Controller
+                  control={control}
+                  name="github_link"
                   render={({ field }) => (
                     <Form.Control type="text" {...field} />
                   )}
@@ -68,7 +100,7 @@ const AddMember = () => {
                 />
               </Form.Group>
               <Button
-                variant="dark"
+                id="primary-btn"
                 type="submit"
                 disabled={apiStatus === "pending"}
               >
@@ -82,4 +114,4 @@ const AddMember = () => {
   );
 };
 
-export default AddMember;
+export default AdminAddProject;

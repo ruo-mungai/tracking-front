@@ -14,9 +14,20 @@ function NavBar({ user, setUser }) {
 
   return (
     <Wrapper>
+      <Nav>
+        <Button variant="outline" onClick={handleLogoutClick}>
+          {user.username}
+        </Button>
+      </Nav>
       <Logo>
         <Link to="/">App test</Link>
       </Logo>
+      <Nav>
+        <Button variant="outline" onClick={handleLogoutClick}>
+          {user.username}
+        </Button>
+      </Nav>
+
       <Nav>
         <Button variant="outline" onClick={handleLogoutClick}>
           Logout
