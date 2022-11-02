@@ -12,7 +12,7 @@ import AdminAddProject from "./adminprojects/AdminAddProject";
 import AdminEditProject from "./adminprojects/AdminEditProject";
 import AdminAllProjects from "./adminprojects/AdminAllProjects";
 import Cohort from "./cohorts/Cohort";
-import User from "./pages/User";
+// import User from "./pages/User";
 // import ProjectList from './pages/ProjectList';
 
 
@@ -58,7 +58,7 @@ function App() {
         <Route path="/admin/add" element={<AdminAddProject />}></Route>
         <Route path="/edit/admin/:id" element={<AdminEditProject />}></Route>
         <Route path="/cohort" element={<Cohort />}></Route>
-        <Route path="/user" element={<User />}></Route>
+        {/* <Route path="/user" element={<User />}></Route> */}
         <Route
           path="/admin"
           element={
