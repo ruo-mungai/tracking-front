@@ -18,5 +18,5 @@ export const SideBarData = [
         title: "Add Projects",
         icon: <PostAddIcon />,
         path: "/addproject"
-    }
+    },
 ];

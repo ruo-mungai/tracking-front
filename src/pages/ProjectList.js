@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { Col,  Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Sidebar from "../components/Sidebar";
-function ProjectList() {
+import Navbar from "./NavBar";
+
+function ProjectList({user, setUser}) {
   const [projects, setProjects] = useState([]);
   const [visible, setVisible] = useState(false);
 
@@ -13,11 +15,14 @@ function ProjectList() {
   }, []);
  
  return (
-   <Sidebar>
-     <Row xs={1} md={3} className="g-4">
+   <Sidebar user={user} setUser={setUser}>
+     <div className="hero-log">
+     <Navbar user={user} setUser={setUser} />
+     </div>
+     <Row xs={1} md={3} className="g-4" id="move">
        {projects.map((project) => (
          <Col key={project.id}>
-           <Card>
+           <Card id="cardid">
              <Card.Body>
                <Card.Title>{project.name}</Card.Title>
                <Card.Subtitle className="mb-2 text-muted">
@@ -27,12 +32,12 @@ function ProjectList() {
                {""}
                <Card.Text>project by: {project.user.username}</Card.Text>
              </Card.Body>
-             <Card.Body>
+             <Card.Body id="bodylinks">
                <Card.Link href={project.github_link}>
                  <svg
                    xmlns="http://www.w3.org/2000/svg"
-                   width="16"
-                   height="16"
+                   width="20"
+                   height="20"
                    fill="currentColor"
                    class="bi bi-github"
                    viewBox="0 0 16 16"
@@ -45,8 +50,8 @@ function ProjectList() {
                  {/* {visible ? "Hide" : "Show"} */}
                  <svg
                    xmlns="http://www.w3.org/2000/svg"
-                   width="16"
-                   height="16"
+                   width="20"
+                   height="20"
                    fill="currentColor"
                    class="bi bi-people"
                    viewBox="0 0 16 16"

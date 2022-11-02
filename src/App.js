@@ -7,7 +7,7 @@ import EditProject from "./pages/EditProject";
 import AddMember from './pages/AddMember';
 import MyProjects from "./pages/MyProjects";
 import Login from "./pages/Login";
-import NavBar from "./pages/NavBar"
+// import NavBar from "./pages/NavBar"
 import AdminAddProject from "./adminprojects/AdminAddProject";
 import AdminEditProject from "./adminprojects/AdminEditProject";
 import AdminAllProjects from "./adminprojects/AdminAllProjects";
@@ -39,13 +39,12 @@ function App() {
 
   return (
     <>
-      <NavBar user={user} setUser={setUser} />
       <Routes>
         <Route
           path="/"
           element={
             user.role === "user" ? (
-              <ProjectList />
+              <ProjectList user={user} setUser={setUser}/>
             ) : (
               <Navigate replace to={"/Admin"} />
             )

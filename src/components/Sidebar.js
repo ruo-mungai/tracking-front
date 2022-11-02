@@ -1,6 +1,7 @@
 import React from 'react'
 import { SideBarData } from '../pages/SideBarData'
 import { NavLink } from "react-router-dom";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 function Sidebar({children}) {
 
@@ -23,7 +24,9 @@ function Sidebar({children}) {
               </>
             );
           })}
-         
+         <div class="btnlogout">
+           <LogoutIcon />
+         </div>
         </ul>
       </div>
       <main>{children}</main>
