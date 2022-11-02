@@ -1,4 +1,5 @@
 import React from 'react'
+import { Card,Row, Col } from 'react-bootstrap'
 
 function CohortCard({cohort, onDeleteCohort}) {
     const { id, name, description } = cohort 
@@ -13,11 +14,18 @@ function CohortCard({cohort, onDeleteCohort}) {
         })
     }
   return (
-    <div className='card'>
-        <h2>{name}</h2>
-        <p>{description}</p>
-
-        <button onClick={handleDeleteCohort} id="primary-btn">Delete</button>
+    <div >
+        <Row xs={1} md={3} className="g-4">
+            <Col key={id}>
+              <Card>
+                <Card.Body>
+                  <Card.Title>{name}</Card.Title>
+                  <Card.Text>{description}</Card.Text>
+                </Card.Body>
+                </Card>
+                </Col>
+           </Row>
+    
     </div>
   )
 }

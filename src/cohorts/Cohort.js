@@ -1,6 +1,7 @@
 import React, {useEffect, useState } from 'react';
 import NewCohort from './NewCohort';
 import CohortList from './CohortList';
+import AdminBar from '../components/shared/AdminBar';
 function Cohort() {
     const [cohorts, setCohorts] = useState([]);
 
@@ -24,13 +25,12 @@ function Cohort() {
     }
   return (
     <div>
-         <NewCohort onAddCohort={handleAddCohort}/>
-         < CohortList
-         cohorts={cohorts}
-         onDeleteCohort ={handleDeleteCohort}
-         />
+      <AdminBar>
+        <NewCohort onAddCohort={handleAddCohort} />
+        <CohortList cohorts={cohorts} onDeleteCohort={handleDeleteCohort} />
+      </AdminBar>
     </div>
-  )
+  );
 }
 
 export default Cohort

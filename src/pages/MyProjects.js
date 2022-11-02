@@ -9,6 +9,7 @@ import Spinner from "react-bootstrap/Spinner";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Sidebar from '../components/Sidebar';
 
 const MyProjects = () => {
   const navigate = useNavigate();
@@ -127,7 +128,11 @@ const MyProjects = () => {
       </>
     );
 
-  return <Container className="mt-2">{contentToRender}</Container>;
+  return (
+        <Sidebar>
+         <Container className="mt-2">{contentToRender}</Container> 
+         </Sidebar>
+        );
 };
 
 export default MyProjects;

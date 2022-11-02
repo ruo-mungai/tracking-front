@@ -10,7 +10,7 @@ const AddMember = () => {
     defaultValues: {
       name: "",
       project_id: "",
-      user_id: "",
+     
     },
   });
 
@@ -22,7 +22,7 @@ const AddMember = () => {
     let payload = {
       name: data.name,
       project_id: data.project_id,
-      user_id: data.user_id,
+    
     };
     disptach(saveNewMember(payload))
       .unwrap()
@@ -52,16 +52,6 @@ const AddMember = () => {
                 <Controller
                   control={control}
                   name="project_id"
-                  render={({ field }) => (
-                    <Form.Control type="text" {...field} />
-                  )}
-                />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formuser_id">
-                <Form.Label>user_id</Form.Label>
-                <Controller
-                  control={control}
-                  name="user_id"
                   render={({ field }) => (
                     <Form.Control type="text" {...field} />
                   )}
