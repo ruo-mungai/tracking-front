@@ -83,3 +83,35 @@ button#logout-secondary {
   border: solid 1px #FF725E;
   color: black;
 }
+
+.t-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 100px;
+}
+
+.headerimage img {
+  width: 600px;
+}
+
+h2.header {
+  margin-bottom: 32px;
+}
+
+.log {
+  line-height: 2.5;
+}
+
+button#secondary {
+  border: none;
+  background: none;
+  color: #FF725E;
+}
+
+p.login-link {
+  display: flex;
+  padding-top: 20px;
+  justify-content: center;
+}
