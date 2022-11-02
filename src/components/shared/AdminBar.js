@@ -34,7 +34,7 @@ function AdminBar({children, setUser}) {
           })}
          <div class="btnlogout" onClick={handleLogoutClick}>
            <LogoutIcon />
-           <p>Logout</p>
+           <button>Logout</button>
          </div>
         </ul>
       </div>

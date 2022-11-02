@@ -93,6 +93,7 @@ button#logout-secondary {
   height: 100vh;
   gap: 100px;
 }
+cursor: pointer;
 
 .headerimage img {
   width: 600px;
