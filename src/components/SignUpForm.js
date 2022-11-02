@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Button, Error, Input, FormField, Label, Textarea } from "../styles";
+import { Form, Button, Alert } from 'react-bootstrap'
+let headerPic = require("../Mobile encryption.gif")
 
-function SignUpForm({ onLogin }) {
+function SignUpForm({ onLogin, setShowLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
@@ -36,65 +37,66 @@ function SignUpForm({ onLogin }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <FormField>
-        <Label htmlFor="username">Username</Label>
-        <Input
+    <div className="t-main">
+      <div className="headerimage">
+        <img src={headerPic} alt="lock-gif" />
+        </div>
+      <div className="log">
+      <div className='w-100' style={{ maxWidth: "370px" }}>
+      <h2 className="header">Create an Account, to get started</h2>
+        <Form onSubmit={handleSubmit} id='form'>
+        {errors.map((err) => (
+          <Alert variant="danger">{err}</Alert>
+        ))}
+        <Form.Group id="username">
+        <Form.Label>Your Username*</Form.Label>
+        <Form.Control
           type="text"
-          id="username"
           autoComplete="off"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="password">Password</Label>
-        <Input
+          required
+          />
+        </Form.Group>
+
+      <Form.Group id="password">
+        <Form.Label>Create Password*</Form.Label>
+        <Form.Control
           type="password"
-          id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password"
+          required
         />
-      </FormField>
-      <FormField>
-        <Label htmlFor="password">Password Confirmation</Label>
-        <Input
+      </Form.Group>
+
+      <Form.Group id="password_confirmation">
+        <Form.Label>Password Confirmation*</Form.Label>
+        <Form.Control
           type="password"
-          id="password_confirmation"
           value={password_confirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
-      </FormField>
-      <FormField>
-        <Label htmlFor="imageUrl">Profile Image</Label>
-        <Input
-          type="text"
-          id="imageUrl"
-          value={last_name}
-          onChange={(e) => setImageUrl(e.target.value)}
-        />
-      </FormField>
-      {/* <FormField>
-        <Label htmlFor="bio">Bio</Label>
-        <Textarea
-          rows="3"
-          id="bio"
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
-        />
-      </FormField> */}
-      <FormField>
-        <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
-      </FormField>
-      <FormField>
-        {errors.map((err) => (
+      </Form.Group>
+      <br />
+      <Button className='w-100' id="primary-btn" type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
+        {/* {errors.map((err) => (
           <Error key={err}>{err}</Error>
-        ))}
-      </FormField>
-    </form>
+        ))} */}
+      <p className="login-link">
+        Already have an account? &nbsp;
+        <Button id="secondary" onClick={() => setShowLogin(true)}>
+          Login
+          </Button>
+      </p>
+
+        </Form>
+      </div>
+      </div>
+      </div>
   );
 }
+
 
 export default SignUpForm;
