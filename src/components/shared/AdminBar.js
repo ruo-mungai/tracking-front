@@ -1,13 +1,22 @@
-import React from "react";
-
+import React from 'react'
+import { AdminSideData } from '../../pages/AdminSideData'
 import { NavLink } from "react-router-dom";
-import { AdminSideData } from "../../pages/AdminSideData";
+import LogoutIcon from '@mui/icons-material/Logout';
 
-function AdminBar({ children }) {
+function AdminBar({children, setUser}) {
+
+   function handleLogoutClick() {
+     fetch("/logout", { method: "DELETE" }).then((r) => {
+       if (r.ok) {
+         setUser(null);
+       }
+     });
+   }
+
   return (
     <div className="Container">
       <div className="Sidebar">
-        <ul >
+        <ul className="Sidelist">
           {AdminSideData.map((val, key) => {
             return (
               <>
@@ -23,6 +32,10 @@ function AdminBar({ children }) {
               </>
             );
           })}
+         <div class="btnlogout" onClick={handleLogoutClick}>
+           <LogoutIcon />
+           <p>Logout</p>
+         </div>
         </ul>
       </div>
       <main>{children}</main>
@@ -30,4 +43,4 @@ function AdminBar({ children }) {
   );
 }
 
-export default AdminBar;
+export default AdminBar

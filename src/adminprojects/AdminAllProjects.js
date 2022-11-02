@@ -10,7 +10,7 @@ import DeleteConfirmation from "../components/shared/DeleteConfirmation";
 import AdminBar from "../components/shared/AdminBar";
 // import Members from "./Members";
 
-const AdminAllProjects = () => {
+const AdminAllProjects = ({user, setUser}) => {
   const navigate = useNavigate();
   const allProjects = useSelector(getAllProjects);
   const apiStatus = useSelector(getLoading);
@@ -123,7 +123,7 @@ const AdminAllProjects = () => {
 
   return (
     <>
-      <AdminBar>
+      <AdminBar user={user} setUser={setUser}>
         <DeleteConfirmation
           title="Delete Confirmation!"
           body="Are sure to delete this item"

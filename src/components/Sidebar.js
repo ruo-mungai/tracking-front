@@ -1,8 +1,17 @@
 import React from 'react'
 import { SideBarData } from '../pages/SideBarData'
 import { NavLink } from "react-router-dom";
+import LogoutIcon from '@mui/icons-material/Logout';
 
-function Sidebar({children}) {
+function Sidebar({children, setUser}) {
+
+   function handleLogoutClick() {
+     fetch("/logout", { method: "DELETE" }).then((r) => {
+       if (r.ok) {
+         setUser(null);
+       }
+     });
+   }
 
   return (
     <div className="Container">
@@ -23,7 +32,10 @@ function Sidebar({children}) {
               </>
             );
           })}
-         
+         <div class="btnlogout" onClick={handleLogoutClick}>
+           <LogoutIcon />
+           <p>Logout</p>
+         </div>
         </ul>
       </div>
       <main>{children}</main>

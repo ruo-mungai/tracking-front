@@ -11,8 +11,9 @@ body {
 .Sidebar {
   height: 100vh;
   width: 350px;
-  background-color: #cccc;
+  background-color: #393944;
   padding-top: 10%;
+  color: #fff;
 }
 
 .Sidelist {
@@ -28,7 +29,7 @@ body {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: inherit;
+  color: #ccc;
 }
 
 #icon {
@@ -43,7 +44,8 @@ body {
 
 main {
   width: 100%;
-  padding: 20px;
+  padding: 15px;
+  background: #faebd747;
 }
 
 .Container {
@@ -82,4 +84,55 @@ button#logout-secondary {
   background: transparent;
   border: solid 1px #FF725E;
   color: black;
+}
+
+.t-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 100px;
+}
+
+.headerimage img {
+  width: 600px;
+}
+
+h2.header {
+  margin-bottom: 32px;
+}
+
+.log {
+  line-height: 2.5;
+}
+
+button#secondary {
+  border: none;
+  background: none;
+  color: #FF725E;
+}
+
+p.login-link {
+  display: flex;
+  padding-top: 20px;
+  justify-content: center;
+}
+div#cardid {
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+button#btnlog {
+  background: none;
+  border: solid 0px;
+}
+
+.btnlogout {
+  display: flex;
+  justify-content: center;
+  padding-top: 20%;
+  padding-right: 30%;
+  gap: 2;
+  color: #ccc;
+  gap: 39px;
 }
